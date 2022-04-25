@@ -1,0 +1,31 @@
+/* Organizando o arquivo CSS */
+/* Limpando o navegador. CSS Reset */
+/* 
+inherit = herança explicita 
+initial = força a redefinição de valores
+unset = desabilita uma propriedade CSS
+ */
+
+
+body, h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+* {
+    box-sizing: border-box;
+}
+/* Responsive web design */
+
+body {
+    background-color: #333;
+    color: #e4e4e4;
+}
+/* Quando a largura mpinima for de 768 px aplique este CSS*/
+@media (min-width: 768px){
+    body {
+        background-color: unset;
+        color: initial;
+    }
+}
+
