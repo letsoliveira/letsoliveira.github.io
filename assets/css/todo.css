@@ -1,12 +1,50 @@
 @import 'reset.css';
 
+/* 
+.text {
+    font-size: 0.9em;
+    font-family: 'Roboto','Lato',sans-serif;
+    color: #333;
+}
+
+.text.small {
+    font-size: 0.6em;
+}
+
+.text.large {
+    font-size: 2em;
+}
+
+.text.x-large {
+    font-size: 4em;
+}
+class="text x-large" */
+
+/* 
+width, height, padding, border, margin, font-family, font-size, font-weight, 
+position, z-index, overflow, display,
+flex, flex-direction, align-items, justify-content, flex-flow, flex-grow, flex-wrap
+grid, grid-gap, row, column,
+transform, transition, animation, opacity, filter.
+text-decoration, list-style.
+
+Propriedade CSS:
+unidades de medida: px, %, vw, vh, em
+globais: inherit, initial, unset
+ex: width
+valores possíveis: all, min-content, max-content, fit-content, auto,
+Valor inicial: auto
+herança implícita: não */
+
 .menu, .container, .details {
-    border: var(--border);
     height: 100vh;
 }
+
 .menu {
     width: var(--menuWidth);
     border-color: #24FF00;
+    flex-direction: column;
+    background-color: #f2f2f2;    
 }
 
 .container {
@@ -17,6 +55,7 @@
 .details {
     width: var(--detailsWidth);
     border-color: #0500AF;
+    border: var(--border);
 }
 
 body {
@@ -40,6 +79,7 @@ body {
 
 .menu .header__img__profile {
     width: 25%;
+    margin-right: 10px;
 }
 
 .menu .menu__header__profile svg {
@@ -56,8 +96,83 @@ body {
     box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.1);
 }
 
-.menu .menu__header__profile input {
+.menu .menu__header__profile label input {
     padding-left: 5%;
     border: none;
     background: none;
+}
+
+.menu > .activity ul{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 0.5px rgba(100,100,100,0.2);
+}
+
+.menu > .activity ul li{
+    line-height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+    font-size: 0.9em;
+}
+
+.menu > .activity ul li:hover {
+    background-color: rgba(100,100,100,0.1);
+    cursor: pointer;
+}
+
+.menu > .activity ul li > svg {
+    margin-right: 10%;
+}
+
+header.menu__header__profile > div.first-child {
+    margin-left: 15px;
+}
+
+header.menu__header__profile > div {
+    margin-top: 15px;
+}
+
+.container {
+    width: 100%;
+    height: inherit;
+    flex-direction: column;
+    background: url('../images/bg-phone.jpg') center no-repeat;
+    background-size: cover;
+}
+
+.container > header, 
+.container > footer {
+    height: 133px;
+}
+
+.container > section.tasks {
+    height: calc(100vh - (133px * 2));
+}
+.container > header {
+    width: 100%;
+    flex-direction: column;
+    color: #fff;
+    text-shadow: 0 0 2px #333;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.container > header > div:first-child {
+    margin-top: 2%;
+    justify-content: space-between;
+}
+/* tablet */
+@media (min-width:768px){
+    .container {
+        background: url('../images/bg-tablet.jpg') center no-repeat;
+        background-size: cover;
+    }
+}
+/* desktop */
+@media (min-width:1280px){
+    .container {
+        background: url('../images/bg-desktop.jpg') center no-repeat;
+        background-size: cover;
+    }
 }
