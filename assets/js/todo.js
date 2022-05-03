@@ -1,3 +1,6 @@
+import { addTask, getAllTasks } from "./utils/domFunctions.js";
+// console.log(db[0]).steps[2].step)
+
 const db = [
     {
         id: 1,
@@ -17,15 +20,17 @@ const db = [
         title:"Aula 4 Fiap - Avanade",
         steps: [
             {step: "Atributos Globais"},
-            {step: "Estrutura CSS"},
+            {step: "Estrutura CSS"}
         ],
-        done: false,
-        dueDate: "2022-05-06",
-        reminder: "2022-05-02 10:00",
+        done: true,
+        dueDate: "2022-04-28",
     },    
 
 ];
-
+getAllTasks(db);
+//console.log(db[0].title);
+// DOM = DOCUMENT OBJECT MODEL - é o JS acessando o HTML e manipulando ele.
+// HTML = É compilado pelo navegador em uma árvore de comandos, chamada DOM.
 console.log(db[0].title);
 const newTask = document.querySelector("#inputTxtNewTask");
 const form = document.querySelector("#addNewTask");
@@ -33,16 +38,25 @@ form.addEventListener("submit", (e) => {
     //Form faz favor? Não faz nada...
     e.preventDefault();
 })
-newTask.addEventListener('keyup',(e)=>{
+newTask.addEventListener("keyup",(e)=>{
     e.preventDefault();
     e.stopPropagation();
-    if(e.key == 'Enter'){
-        alert(newTask.value);
-        db.push({ id: Number(db.length) +1 , title: newTask.value });
+    if(e.key == "Enter"){
+        if (!newTask.value){
+            alert("Digite alguma coisa");
+        } else {
+        // alert(newTask.value);
+        const d = new Date();
+        const today = `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`;
+
+        db.push({ id: Number(db.length) + 1 , title: newTask.value, done: false, dueDate: today });
+        document.querySelector(".tasks").innerHTML = "";
+        getAllTasks(db);
         newTask.value = "";
+        console.log(db); 
+        } 
     }
-    console.log(db);
-})
+});
 
 //exemplo de array
 // const frutas = ["maçã", "banana", "abacaxi", "abacate"];

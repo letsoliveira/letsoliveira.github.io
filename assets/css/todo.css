@@ -162,6 +162,27 @@ header.menu__header__profile > div {
     margin-top: 2%;
     justify-content: space-between;
 }
+
+.tasks {
+    flex-direction: column;
+}
+
+.task {
+    width: 90%;
+    margin: 0.5% 5%;
+    height: 70px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: rgba(240,240,240,0.8);
+    border-radius: 5px;
+}
+
+.task:hover {
+    background: rgb(240,240,240);
+    cursor: pointer;
+}
+
 /* tablet */
 @media (min-width:768px){
     .container {
